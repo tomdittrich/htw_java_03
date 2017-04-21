@@ -3,7 +3,7 @@ package bankprojekt.verarbeitung;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * JUnit Testklasse fuer die Klasse Girokonto
@@ -33,13 +33,13 @@ public class GirokontoTest {
     public void waehrungswechselTest() {
         konto.waehrungswechsel(Currency.KM);
         assertEquals(Currency.KM, konto.getAktuelleWaehrung());
-        assertEquals(1955.83, konto.getKontostand(),0);
-        assertEquals(977.915, konto.getDispo(),0);
+        assertEquals(1955.83, konto.getKontostand(), 0);
+        assertEquals(977.915, konto.getDispo(), 0);
 
         konto.waehrungswechsel(Currency.EUR);
         assertEquals(Currency.EUR, konto.getAktuelleWaehrung());
-        assertEquals(1000, konto.getKontostand(),0);
-        assertEquals(500, konto.getDispo(),0);
+        assertEquals(1000, konto.getKontostand(), 0);
+        assertEquals(500, konto.getDispo(), 0);
     }
 
     /**
@@ -48,11 +48,11 @@ public class GirokontoTest {
      */
     @Test
     public void abhebenTest() throws GesperrtException {
-        konto.abheben(500,Currency.KM); // 500 KM = 255.6459406 Euro
-        assertEquals((1000 - 255.6459406), konto.getKontostand(),0.0000001); // 1000 - 255.6459406
+        konto.abheben(500, Currency.KM); // 500 KM = 255.6459406 Euro
+        assertEquals((1000 - 255.6459406), konto.getKontostand(), 0.0000001); // 1000 - 255.6459406
 
-        konto.abheben(500,Currency.LTL); // 500 LTL = 144.810009268 Euro
-        assertEquals((1000 - 255.6459406-144.810009268), konto.getKontostand(), 0.00000001);
+        konto.abheben(500, Currency.LTL); // 500 LTL = 144.810009268 Euro
+        assertEquals((1000 - 255.6459406 - 144.810009268), konto.getKontostand(), 0.00000001);
 
     }
 
