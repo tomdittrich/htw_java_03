@@ -3,10 +3,10 @@ package bankprojekt.verarbeitung;
 import java.time.LocalDate;
 
 /**
- * Description
+ * Studenten-Kunde einer Bank
  *
  * @author Tom Dittrich s0555944@htw-berlin.de
- * @version 0.5
+ * @version 0.8
  * @date 21.04.17
  */
 public class Student extends Kunde {
@@ -63,15 +63,15 @@ public class Student extends Kunde {
 
         if (semester < 0) {
             this.semester = 0;
+            this.aktuellStudent = true;
         } else {
             this.semester = semester;
+            this.aktuellStudent = false;
         }
 
         this.uniname = uniname;
         this.fach = fach;
         this.studiende = studiende;
-        this.aktuellStudent = true;
-
     }
 
     /**
@@ -116,6 +116,7 @@ public class Student extends Kunde {
      * @param aktuellStudent true = liegt vor, false = nicht
      */
     public void setAktuellStudent(boolean aktuellStudent) {
+        // verguenstigung(aktuellStudent); Platzhalter fuer moegliche Methode
         this.aktuellStudent = aktuellStudent;
     }
 
