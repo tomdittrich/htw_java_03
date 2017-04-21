@@ -157,7 +157,7 @@ public abstract class Konto
 	 * @param currency die Waehrung des Betrags
 	 */
 	public void einzahlen(double betrag, Currency currency) {
-		this.einzahlen((betrag/currency.getRate())* getAktuelleWaehrung().getRate());
+		this.einzahlen((betrag/currency.getRate())* valuta.getRate());
 	}
 	
 	/**
@@ -195,7 +195,7 @@ public abstract class Konto
 	 * @throws GesperrtException wenn Konto gesperrt
 	 */
     public boolean abheben(double betrag, Currency currency) throws GesperrtException{
-        return this.abheben((betrag/currency.getRate())* getAktuelleWaehrung().getRate());
+        return this.abheben((betrag/currency.getRate())* valuta.getRate());
     }
 
     /**
@@ -206,7 +206,7 @@ public abstract class Konto
     public void waehrungswechsel(Currency neu){
     	// konvertiert erst den aktuellen Kontostand in Euro
 		// und multipliziert ihn dann mit der neuen Waehrungs Rate auf den neuen Kontostand
-		setKontostand((getKontostand()/getAktuelleWaehrung().getRate()) * neu.getRate()); // Converts
+		setKontostand((kontostand/valuta.getRate()) * neu.getRate()); // Converts
 		setAktuelleWaehrung(neu);
 	}
 

@@ -4,7 +4,7 @@ package bankprojekt.verarbeitung;
  * ENUM fuer Waehrungen mit festen Umrechnungskurs
  *
  * @author Tom Dittrich s0555944@htw-berlin.de
- * @version 0.9
+ * @version 1.0
  * @date 08.04.2017
  */
 
