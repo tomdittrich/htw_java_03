@@ -1,4 +1,3 @@
-import java.util.List;
 
 /**
  * Kind
@@ -11,8 +10,6 @@ public class Kind extends Person implements Frech<Person>{
 
     Kuscheltier kuscheltier1;
     Kuscheltier kuscheltier2;
-    private List<Erwachsener> hatErwachsener;
-
 
     public void wachsen(boolean schnell){
 
@@ -22,9 +19,5 @@ public class Kind extends Person implements Frech<Person>{
     public boolean aergern(Person p) {
         return false;
     }
-
-    @Override
-    public void zungeRausstrecken() {
-
-    }
+    
 }

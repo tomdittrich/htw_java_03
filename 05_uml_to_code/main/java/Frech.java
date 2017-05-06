@@ -9,6 +9,8 @@ public interface Frech<P> {
 
     public abstract boolean aergern(P p);
 
-    public void zungeRausstrecken();
+    public default void zungeRausstrecken(){
+
+    }
 
 }

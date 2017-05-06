@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Erwachsener
  *
@@ -6,6 +8,8 @@
  * @date 06.05.17
  */
 public class Erwachsener {
+
     public static String WURSCHREI;
+    private List<Kind> hatKinder;
 
 }
