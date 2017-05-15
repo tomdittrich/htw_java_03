@@ -18,6 +18,7 @@ public class Ball implements Runnable {
     private int dx = 2;
     private int dy = 2;
     private boolean moves = true;
+
     /**
      * erstellt einen Ball, der in das angegebene Panel gezeichnet wird
      *
@@ -117,12 +118,17 @@ public class Ball implements Runnable {
         // ein if-else Block mit i-- wäre eine Schnappsidee
         this.draw();
         for (int i = 1; i <= dauer; i++) {
-            if (moves) {
-                this.move();
-            }
-            try {
-                Thread.sleep(5);
-            } catch (InterruptedException e) {
+            if (!Thread.interrupted()) {
+                if (moves) {
+                    this.move();
+                }
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                }
+            } else {
+                this.loeschen();
+                return;
             }
         }
         this.loeschen();
