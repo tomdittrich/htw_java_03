@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
  * Klasse zum Verwalten der Konten
  *
  * @author Tom Dittrich s0555944@htw-berlin.de
- * @version 0.8
- * @date 05.05.2017
+ * @version 1.1
+ * @date 20.05.2017
  */
 public class Bank {
 
@@ -235,7 +235,7 @@ public class Bank {
      * die Methode sperrt alle Konten, deren Kontostand im Minus ist
      */
     public void pleitegeierSperren() {
-        kontenliste.entrySet().stream()
+        kontenliste.entrySet().parallelStream()
                 .filter(a -> a.getValue().getKontostand() < 0)
                 .forEach(a -> a.getValue().sperren());
     }
@@ -248,7 +248,7 @@ public class Bank {
      * @return Liste mit den Kunden
      */
     public List<Kunde> getKundenMitVollemKonto(double minimum) {
-        List<Kunde> list = kontenliste.entrySet().stream().
+        List<Kunde> list = kontenliste.entrySet().parallelStream().
                 filter(a -> a.getValue().getKontostand() >= minimum)
                 .map(a -> a.getValue().getInhaber())
                 .collect(Collectors.toList());
