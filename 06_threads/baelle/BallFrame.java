@@ -65,13 +65,11 @@ public class BallFrame extends JFrame {
         });
         contentPane.add(p, BorderLayout.SOUTH);
 
-        // Klasse für die aktuelle Zeit, Thread
-        Runnable zeit = new Runnable() {
-            public void run() {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-                while (true) {
-                    uhrzeit.setText(dateFormat.format(Calendar.getInstance().getTime()));
-                }
+        // Lambda für die aktuelle Zeit, Thread
+        Runnable zeit = () -> {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+            while (true) {
+                uhrzeit.setText(dateFormat.format(Calendar.getInstance().getTime()));
             }
         };
         new Thread(zeit).start();
