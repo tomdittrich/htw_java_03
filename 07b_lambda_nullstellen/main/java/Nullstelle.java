@@ -1,3 +1,5 @@
+import java.util.function.Function;
+
 /**
  * Berechnet die Nullstelle nach dem
  * Bisektions Verfahren
@@ -13,10 +15,6 @@ public class Nullstelle {
     private static int maxIt = 20; // max. Iterationen
     private static int zaehler = 0; // Zaehler für Iterationen
 
-    public static double f(double x) {
-        return (x * x) - 5;
-    }
-
     /**
      * sucht eine Nullstelle nach BiSektion
      *
@@ -25,12 +23,13 @@ public class Nullstelle {
      * @return die Nullstelle
      * @throws Exception falls zu viele Iterationen
      */
-    // links und rechts sollten beim Start das Gegenteil sein!
+    // !!!
+    // links und rechts sollten beim Start das Gegenteil sein
     // z.B. "-10 und 10" oder "-5 und 5"
     // andernfalls kann es zu Problemen kommen
-    public static double suche(double links, double rechts) throws Exception {
+    public static double suche(Function<Double, Double> f, double links, double rechts) throws Exception {
         double half = (links + rechts) / 2;
-        double y1 = f(half);
+        double y1 = f.apply(half);
 
         if (zaehler <= maxIt) {
             System.out.printf("Links %f Rechts %f Y %f Iteration %d\n", links, rechts, y1, zaehler);
@@ -40,10 +39,10 @@ public class Nullstelle {
             } else {
                 if (y1 > 0) {
                     zaehler++;
-                    return (suche(links, half));
+                    return (suche(f,links, half));
                 } else if (y1 < 0) {
                     zaehler++;
-                    return (suche(half, rechts));
+                    return (suche(f,half, rechts));
                 }
             }
 
