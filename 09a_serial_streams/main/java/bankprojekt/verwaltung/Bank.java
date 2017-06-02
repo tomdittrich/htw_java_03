@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
  * Klasse zum Verwalten der Konten
  *
  * @author Tom Dittrich s0555944@htw-berlin.de
- * @version 0.8
- * @date 05.05.2017
+ * @version 1.1
+ * @date 02.06.2017
  */
-public class Bank implements Cloneable, Serializable{
+public class Bank implements Cloneable, Serializable {
 
     long bankleitzahl;
     long groesteKtn = 1000000000;
@@ -267,7 +267,7 @@ public class Bank implements Cloneable, Serializable{
         Object objDest = null;
         byte[] byteData = null;
 
-        try (ByteArrayOutputStream bos = new ByteArrayOutputStream()){
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
 
             ObjectOutputStream oos = new ObjectOutputStream(bos);
             oos.writeObject(this);
@@ -280,10 +280,11 @@ public class Bank implements Cloneable, Serializable{
             e.printStackTrace();
         }
 
-        try (ByteArrayInputStream bais = new ByteArrayInputStream(byteData)){
-            ObjectInputStream ois = new ObjectInputStream(bais);
+        try (ObjectInputStream ois = new ObjectInputStream(
+                new ByteArrayInputStream(byteData))) {
+
             objDest = ois.readObject();
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
