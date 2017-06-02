@@ -1,0 +1,4 @@
+- add clone() Method in Bank Class
+- add JUnitTest
+- Extends Excercise 04
+- No extra upload of all classes
