@@ -5,37 +5,24 @@ import java.io.Serializable;
 /**
  * stellt ein allgemeines Konto dar
  */
-public abstract class Konto implements Serializable{
-    /**
-     * der Kontoinhaber
-     */
-    private Kunde inhaber;
-
+public abstract class Konto implements Serializable {
     /**
      * die Kontonummer
      */
     private final long nummer;
-
+    /**
+     * der Kontoinhaber
+     */
+    private Kunde inhaber;
     /**
      * der aktuelle Kontostand
      */
     private double kontostand;
-
-    /**
-     * setzt den aktuellen Kontostand
-     *
-     * @param kontostand neuer Kontostand
-     */
-    protected void setKontostand(double kontostand) {
-        this.kontostand = kontostand;
-    }
-
     /**
      * Wenn das Konto gesperrt ist (gesperrt = true), k�nnen keine Aktionen daran mehr vorgenommen werden,
      * die zum Schaden des Kontoinhabers w�ren (abheben, Inhaberwechsel)
      */
     private boolean gesperrt;
-
     /**
      * die aktuelle Waehrung:
      * EUR, BGN (Bulgarische Leva), LTL (Litauische Litas). KM (Konvertible Mark)
@@ -69,7 +56,6 @@ public abstract class Konto implements Serializable{
         this(Kunde.MUSTERMANN, 1234567);
     }
 
-
     /**
      * liefert den Kontoinhaber zur�ck
      *
@@ -102,6 +88,15 @@ public abstract class Konto implements Serializable{
      */
     public final double getKontostand() {
         return kontostand;
+    }
+
+    /**
+     * setzt den aktuellen Kontostand
+     *
+     * @param kontostand neuer Kontostand
+     */
+    protected void setKontostand(double kontostand) {
+        this.kontostand = kontostand;
     }
 
     /**
@@ -188,12 +183,12 @@ public abstract class Konto implements Serializable{
      * @throws GesperrtException        wenn das Konto gesperrt ist
      * @throws IllegalArgumentException wenn der Betrag negativ ist
      */
-    public boolean abheben(double betrag) throws GesperrtException, IllegalArgumentException{
+    public boolean abheben(double betrag) throws GesperrtException, IllegalArgumentException {
         if (betrag < 0)
             throw new IllegalArgumentException();
         if (this.isGesperrt())
             throw new GesperrtException(this.getKontonummer());
-        if(abhebenMoeglich(betrag)){
+        if (abhebenMoeglich(betrag)) {
             setKontostand(getKontostand() - betrag);
             return true;
         }
@@ -307,7 +302,7 @@ public abstract class Konto implements Serializable{
     }
 
     /**
-     * schreibt this aUF DIE kONSOLE
+     * schreibt this auf die Konsole
      */
     public void aufDieKonsoleSchreiben() {
         System.out.println(this.toString());

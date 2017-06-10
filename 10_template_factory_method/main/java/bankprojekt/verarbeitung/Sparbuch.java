@@ -9,15 +9,13 @@ import java.time.LocalDate;
  */
 public class Sparbuch extends Konto {
     /**
-     * Zinssatz, mit dem das Sparbuch verzinst wird. 0,03 entspricht 3%
-     */
-    private double zinssatz;
-
-    /**
      * Monatlich erlaubter Gesamtbetrag f�r Abhebungen
      */
     public static final double ABHEBESUMME = 2000;
-
+    /**
+     * Zinssatz, mit dem das Sparbuch verzinst wird. 0,03 entspricht 3%
+     */
+    private double zinssatz;
     /**
      * Betrag, der im aktuellen Monat bereits abgehoben wurde
      */
@@ -72,8 +70,8 @@ public class Sparbuch extends Konto {
     protected boolean abhebenMoeglich(double betrag) {
         LocalDate heute = LocalDate.now();
         if (heute.getMonth() != zeitpunkt.getMonth() || heute.getYear() != zeitpunkt.getYear()) {
-                this.bereitsAbgehoben = 0;
-                zeitpunkt = heute;
+            this.bereitsAbgehoben = 0;
+            zeitpunkt = heute;
         }
 
         if (getKontostand() - betrag >= 0.50 &&
