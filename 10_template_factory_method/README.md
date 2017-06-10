@@ -1,0 +1,4 @@
+- add Template Method "abheben"
+- add abstract method "abhebenMoeglich" and implements in "Sparbuch" and "Girokonto"
+- Extends Excercise 04
+- No extra upload of all classes
