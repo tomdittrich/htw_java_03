@@ -3,8 +3,6 @@ package bankprojekt.verarbeitung;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 /**
  * stellt ein allgemeines Konto dar
@@ -323,7 +321,7 @@ public abstract class Konto implements Serializable {
      *
      * @param obs observerKonto Object
      */
-    public void addObserver(ObserverKonto obs){
+    public void addObserver(ObserverKonto obs) {
         observerList.add(obs);
 
     }
@@ -333,14 +331,14 @@ public abstract class Konto implements Serializable {
      *
      * @param obs observerKonto Object
      */
-    public void deleteObserver(ObserverKonto obs){
+    public void deleteObserver(ObserverKonto obs) {
         observerList.remove(obs);
     }
 
     /**
      * Benachrichtigungs Dienste/Observer informieren
      */
-    protected void notifyObservers(){
+    protected void notifyObservers() {
         /* neues temp. Konto, um eine Kopie zu erzuegen
         * soll verhindern, dass Observer im Original Objekt
         * Änderungen vornehmen kann

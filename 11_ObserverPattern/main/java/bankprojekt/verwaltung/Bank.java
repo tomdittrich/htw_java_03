@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  * @version 1.3
  * @date 15.06.2017
  */
-public class Bank  extends Observable implements Cloneable, Serializable {
+public class Bank extends Observable implements Cloneable, Serializable {
 
     long bankleitzahl;
     long groesteKtn = 1000000000;
@@ -277,7 +277,7 @@ public class Bank  extends Observable implements Cloneable, Serializable {
      * @param obs ObserverKonto Object
      * @param ktn welches Konto soll damit verknüpft werden
      */
-    public void addObserver(ObserverKonto obs, long ktn){
+    public void addObserver(ObserverKonto obs, long ktn) {
         kontenliste.get(ktn).addObserver(obs);
     }
 
@@ -288,7 +288,7 @@ public class Bank  extends Observable implements Cloneable, Serializable {
      * @param obs ObserverKonto Object
      * @param ktn welches Konto damit verknüpft ist
      */
-    public void deleteObserver(ObserverKonto obs, long ktn){
+    public void deleteObserver(ObserverKonto obs, long ktn) {
         kontenliste.get(ktn).deleteObserver(obs);
     }
 

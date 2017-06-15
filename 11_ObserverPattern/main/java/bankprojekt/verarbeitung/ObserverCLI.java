@@ -11,7 +11,7 @@ public class ObserverCLI implements ObserverKonto {
 
     Konto konto;
 
-    public ObserverCLI(){
+    public ObserverCLI() {
 
     }
 
@@ -29,7 +29,7 @@ public class ObserverCLI implements ObserverKonto {
     /**
      * Gibt Kontonummer und -stand aus
      */
-    protected void stringToConsole(){
+    protected void stringToConsole() {
         System.out.println(
                 "Konto: " + konto.getKontonummer() + System.lineSeparator() +
                         "Kontostand: " + konto.getKontostand() + System.lineSeparator()
