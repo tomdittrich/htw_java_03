@@ -342,6 +342,8 @@ public abstract class Konto implements Serializable {
         /* neues temp. Konto, um eine Kopie zu erzuegen
         * soll verhindern, dass Observer im Original Objekt
         * Änderungen vornehmen kann
+        * Nachtrag:
+        * !! IST UNSINN DA POINTER !!
         */
         Konto tempKonto = this;
         observerList.forEach(a -> a.update(tempKonto));
