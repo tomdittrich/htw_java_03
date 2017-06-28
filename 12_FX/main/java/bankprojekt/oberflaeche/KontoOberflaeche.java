@@ -130,6 +130,7 @@ public class KontoOberflaeche extends BorderPane {
 		aktionen.getChildren().add(einzahlen);
 		abheben = new Button("Abheben");
 		aktionen.getChildren().add(abheben);
+
 		//test = new Button("Test");
 		//aktionen.getChildren().add(test);
 		
@@ -150,6 +151,11 @@ public class KontoOberflaeche extends BorderPane {
 		adresse.textProperty().bindBidirectional(kModel.getInhaber().adresseProperty());
 	}
 
+	/**
+	 * Verändert die Meldung, mittig auf der Oberfläche
+	 *
+	 * @param meldung die Meldung als String
+	 */
 	void setMeldung(String meldung){
 		this.meldung.setText(meldung);
 	}

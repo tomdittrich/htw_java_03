@@ -27,6 +27,9 @@ public abstract class Konto implements Serializable {
      */
     private BooleanProperty gesperrt = new SimpleBooleanProperty(false);
 
+    /**
+     * Wenn der Kontostand im Minus ist, false
+     */
     private BooleanProperty PlusMinus = new SimpleBooleanProperty(false);
 
     /**
@@ -35,8 +38,14 @@ public abstract class Konto implements Serializable {
      */
     private Currency valuta;
 
+    /**
+     *
+     */
     private List<ObserverKonto> observerList = new LinkedList<>();
 
+    /**
+     * der Kontostand
+     */
     private ReadOnlyDoubleWrapper derKontostand = new ReadOnlyDoubleWrapper();
 
 
@@ -157,14 +166,28 @@ public abstract class Konto implements Serializable {
         return gesperrt.get();
     }
 
+    /**
+     * Getter gesperrt Property
+     *
+     * @return
+     */
     public BooleanProperty gesperrtProperty() {
         return gesperrt;
     }
 
+    /**
+     * Getter ist Kontostand im Plus oder Minus
+     *
+     * @return Plus? dann true
+     */
     public boolean isPlusMinus() {
         return PlusMinus.get();
     }
 
+    /**
+     * Getter plusMinus Property
+     * @return
+     */
     public BooleanProperty plusMinusProperty() {
         return PlusMinus;
     }
