@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import bankprojekt.verarbeitung.Girokonto?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="354.0" prefWidth="472.0" styleClass="root"
+            xmlns="http://javafx.com/javafx/8.0.131" fx:controller="bankprojekt.oberflaecheFXML.KontoController">
+    <fx:define>
+        <Girokonto fx:id="kModel"/>
+    </fx:define>
+    <top>
+        <Text fill="#455ca4" styleClass="headline" text="Girokonto Organizer 3000+" textAlignment="CENTER"
+              BorderPane.alignment="CENTER">
+            <font>
+                <Font size="30.0"/>
+            </font>
+        </Text>
+    </top>
+    <center>
+        <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="8.0" prefWidth="29.0"
+                  vgap="10" xmlns="http://javafx.com/javafx/8.0.131" >
+            <children>
+                <Text text="Kontonummer" GridPane.rowIndex="1"/>
+                <Text fx:id="kontonummerText" text="$kModel.kontonummerFormatiert" GridPane.columnIndex="1"
+                      GridPane.halignment="CENTER" GridPane.rowIndex="1"/>
+
+                <Text text="Kontostand" GridPane.rowIndex="2"/>
+                <Text fx:id="kontostandText" text="${kModel.kontostand}" GridPane.columnIndex="1"
+                      GridPane.halignment="CENTER" GridPane.rowIndex="2"/>
+
+                <Text text="Gesperrt" GridPane.rowIndex="3"/>
+                <CheckBox fx:id="gesperrtCheckBox" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                          GridPane.rowIndex="3"/>
+
+                <Text text="Adresse" GridPane.rowIndex="4"/>
+                <TextArea fx:id="adresseTextArea" prefHeight="55.0" prefWidth="202.0" GridPane.columnIndex="1"
+                          GridPane.rowIndex="4"/>
+
+                <Text fx:id="meldungText" text="Willkommen ..." GridPane.columnSpan="2147483647" GridPane.rowIndex="5"/>
+
+                <HBox GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.rowIndex="6">
+                    <Spinner fx:id="betragSpinner" amountToStepBy="10d" initialValue="50d" max="100d" min="10d"/>
+                    <Button onAction="#einzahlen" text="Einzahlen"/>
+                    <Button disable="${gesperrtCheckBox.selected}" onAction="#abheben" text="Abheben"/>
+                </HBox>
+            </children>
+        </GridPane>
+    </center>
+</BorderPane>
