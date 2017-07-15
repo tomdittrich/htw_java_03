@@ -1,0 +1,3 @@
+java.lang.IndexOutOfBoundsException
+java.lang.NullPointerException
+java.lang.ArithmeticException: Division by Zero

@@ -1,0 +1,4 @@
+- Singleton Method
+- add Logger Class for exception Logging
+- Extends Excercise 11
+- No extra upload of all classes
