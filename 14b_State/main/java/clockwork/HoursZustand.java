@@ -28,7 +28,7 @@ public class HoursZustand implements IZustand {
      */
     @Override
     public void modeButton(Clock c) {
-        System.out.println("** UPDATING MIN: Press CHANGE button to increase minutes.");
+        System.out.println(" UPDATING MIN: Press CHANGE button to increase minutes.");
         c.setZustand(new MinZustand());
     }
 }

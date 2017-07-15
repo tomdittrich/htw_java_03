@@ -28,7 +28,7 @@ public class MinZustand implements IZustand {
      */
     @Override
     public void modeButton(Clock c) {
-        System.out.println("Clock is in normal display.");
+        System.out.println(" Clock is in normal display.");
         c.setZustand(new NormalZustand());
     }
 }
