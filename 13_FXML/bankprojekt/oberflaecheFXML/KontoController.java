@@ -44,8 +44,6 @@ public class KontoController {
         adresseTextArea.textProperty().bindBidirectional(kModel.getInhaber().adresseProperty());
     }
 
-
-
     /***
      * Zahlt Geld auf das Konto ein, nimmt Befehl von View entgegen
      *
