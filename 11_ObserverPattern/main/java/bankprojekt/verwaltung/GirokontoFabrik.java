@@ -5,7 +5,7 @@ import bankprojekt.verarbeitung.Konto;
 import bankprojekt.verarbeitung.Kunde;
 
 /**
- * Description
+ * Girokonto Fabrik
  *
  * @author Tom Dittrich s0555944@htw-berlin.de
  * @version 1.0
