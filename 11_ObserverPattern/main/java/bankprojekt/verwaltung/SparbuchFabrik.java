@@ -5,7 +5,7 @@ import bankprojekt.verarbeitung.Kunde;
 import bankprojekt.verarbeitung.Sparbuch;
 
 /**
- * Description
+ * Sparbuch Fabrik
  *
  * @author Tom Dittrich s0555944@htw-berlin.de
  * @version 1.0
