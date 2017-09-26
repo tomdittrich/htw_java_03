@@ -8,7 +8,7 @@ import bankprojekt.verarbeitung.Student;
 import java.time.LocalDate;
 
 /**
- * Description
+ * einfaches Test Programm zur Observer Übung
  *
  * @author Tom Dittrich s0555944@htw-berlin.de
  * @version 0.1
@@ -48,7 +48,5 @@ public class TestingApp {
         } catch (GesperrtException e) {
             e.printStackTrace();
         }
-
-
     }
 }
